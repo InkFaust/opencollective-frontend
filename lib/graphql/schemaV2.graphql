@@ -1,5 +1,5 @@
 # source: http://localhost:3060/graphql/v2
-# timestamp: Thu Jun 11 2020 14:05:52 GMT+0100 (British Summer Time)
+# timestamp: Tue Jun 16 2020 13:20:48 GMT-0300 (Brasilia Standard Time)
 
 """
 Account interface shared by all kind of accounts (Bot, Collective, Event, User, Organization)
@@ -4075,6 +4075,11 @@ type TransferWise {
     The 3 letter code identifying the currency you want to receive (ie: USD, EUR, BRL, GBP)
     """
     currency: String!
+
+    """
+    The account JSON object being validated
+    """
+    accountDetails: JSON
   ): [TransferWiseRequiredField]
   availableCurrencies: [String]
 }
@@ -4089,6 +4094,7 @@ type TransferWiseFieldGroup {
   name: String
   type: String
   required: Boolean
+  refreshRequirementsOnChange: Boolean
   displayFormat: String
   example: String
   minLength: Int
